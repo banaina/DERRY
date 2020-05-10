@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/billsroomone"
+        android:duration="300"/>
+    <item android:drawable="@drawable/billsroomtwo"
+        android:duration="300"/>
+    <item android:drawable="@drawable/billsroomthree"
+        android:duration="300"/>
+    <item android:drawable="@drawable/billsroomfour"
+        android:duration="300"/>
+    <item android:drawable="@drawable/billsroomfive"
+        android:duration="300"/>
+    <item android:drawable="@drawable/billsroomsix"
+        android:duration="300"/>
+    <item android:drawable="@drawable/billsroomseven"
+        android:duration="300"/>
+    <item android:drawable="@drawable/billsroomeight"
+        android:duration="300"/>
+
+</animation-list>

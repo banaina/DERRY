@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/creditButton"
+        android:layout_width="286dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="24dp"
+        android:background="#BB4D532E"
+        android:clickable="true"
+        android:onClick="clickFunctionCredits"
+        android:text="Credits"
+        android:textColor="#CD510606"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/selectionbg"
+        app:layout_constraintVertical_bias="0.685"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/storyButton"
+        android:layout_width="286dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        android:background="#C74D532E"
+        android:clickable="true"
+        android:onClick="clickFunctionStoryline"
+        android:text="STORYLINE"
+        android:textColor="#CD510606"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/selectionbg"
+        app:layout_constraintVertical_bias="0.484"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/selectionbg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="fade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/selectionbg"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/loadingScreen"
+        android:layout_width="925dp"
+        android:layout_height="518dp"
+        android:background="#FFFFFF"
+        android:clickable="true"
+        android:onClick="fade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672"
+        app:srcCompat="@drawable/loadingscreen"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="286dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="264dp"
+        android:background="#BC4D532E"
+        android:clickable="true"
+        android:onClick="clickFunctionStart"
+        android:text="Start"
+        android:textColor="#CD510606"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/selectionbg"
+        app:layout_constraintVertical_bias="1.0"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/black"
+        android:layout_width="907dp"
+        android:layout_height="496dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505"
+        app:srcCompat="@drawable/black"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/storySc"
+        android:layout_width="825dp"
+        android:layout_height="479dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.897"
+        app:srcCompat="@drawable/backstory"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/writtenBackstory"
+        android:layout_width="541dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="16dp"
+        android:background="#8D5A4326"
+        android:gravity="center"
+        android:scrollbars="horizontal|vertical"
+        android:text="THE TERROR WHICH WOULD NOT END FOR ANOTHER 28 YEARS - IF IT EVER DID END - BEGAN, SO FAR AS WE KNOW OR CAN TELL, WITH A BOAT MADE FROM A SHEET OF NEWSPAPER FLOATING DOWN A GUTTER SWOLLEN WITH RAIN.............and the voice of the turtle would echo.................THE BOY WAS GEORGE DENBROUGH. HE WAS SIX. HIS BROTHER, WILLIAM, KNOWN TO MOST OF THE KIDS AT DERRY ELEMENTARY SCHOOL AS STUTTERING BILL, WAS AT HOME, HACKING OUT THE LAST CASE OF INFLUENZA.................in that autumn of 1957................."
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#D60000"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/selectionbg"
+        app:layout_constraintVertical_bias="1.0"
+        tools:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/nextButton1"
+        android:layout_width="57dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="#DC3C2E26"
+        android:onClick="nextStartClick"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="@+id/selectionbg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.955"
+        app:srcCompat="@android:drawable/ic_menu_directions"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/loading1"
+        android:layout_width="782dp"
+        android:layout_height="540dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.596"
+        app:srcCompat="@drawable/loadingone"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/loading2"
+        android:layout_width="753dp"
+        android:layout_height="414dp"
+        android:fitsSystemWindows="false"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loadingtwo"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/loading3"
+        android:layout_width="801dp"
+        android:layout_height="412dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loadingthree"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/loading4"
+        android:layout_width="740dp"
+        android:layout_height="429dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loadingfour"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/storylineBacker"
+        android:layout_width="750dp"
+        android:layout_height="429dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/storyline"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/actualStoryline"
+        android:layout_width="513dp"
+        android:layout_height="270dp"
+        android:background="#A80F1E19"
+        android:gravity="center"
+        android:scrollbars="vertical"
+        android:text="TextView"
+        android:textAllCaps="true"
+        android:textColor="#528713"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:visibility="gone"
+        app:fontFamily="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/storylineBacker"
+        app:layout_constraintVertical_bias="0.523"
+        tools:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/goBackFromStoryline"
+        android:layout_width="62dp"
+        android:layout_height="24dp"
+        android:background="#4F355016"
+        android:onClick="clickFunctionBackFromStoryline"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/billsroomone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/billsroomone"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/grightone"
+        android:layout_width="371dp"
+        android:layout_height="214dp"
+        android:layout_marginTop="90dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.915"
+        app:srcCompat="@drawable/grightone"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/gleftone"
+        android:layout_width="375dp"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.923"
+        app:srcCompat="@drawable/gleftone"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/speechRoomOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="clickSpeechDots"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/billsroomone"
+        app:layout_constraintEnd_toEndOf="@+id/billsroomone"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.458"
+        app:srcCompat="@drawable/speechdots"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/speechRoomTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="clickSpeechRtwo"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.458"
+        app:srcCompat="@drawable/speechone" />
+
+    <ImageView
+        android:id="@+id/speechRoomThree"
+        android:layout_width="190dp"
+        android:layout_height="57dp"
+        android:clickable="true"
+        android:onClick="clickSpeechRthree"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/speechtwo"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/speechRoomFour"
+        android:layout_width="270dp"
+        android:layout_height="100dp"
+        android:clickable="true"
+        android:onClick="clickSpeechRfour"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421"
+        app:srcCompat="@drawable/speechthree"
+        tools:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/controlLeft"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:background="#7A5A1D1D"
+        android:onClick="controlLeft"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977"
+        app:srcCompat="@drawable/controlleft"
+        tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/controlRight"
+        android:layout_width="54dp"
+        android:layout_height="56dp"
+        android:background="#7A5A1D1D"
+        android:onClick="controlRight"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977"
+        app:srcCompat="@drawable/controlright"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
