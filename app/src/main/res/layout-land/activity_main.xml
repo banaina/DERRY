@@ -376,7 +376,6 @@
         android:layout_width="55dp"
         android:layout_height="56dp"
         android:background="#7A5A1D1D"
-        android:onClick="controlLeft"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

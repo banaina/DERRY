@@ -3,6 +3,7 @@ package com.example.derry;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.opengl.Visibility;
@@ -21,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -218,20 +220,47 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    public void  controlLeft(View view) {
+    @SuppressLint("ClickableViewAccessibility")
+    public void controlLeftView (View view) {
         ImageButton ctrlleft = (ImageButton) findViewById(R.id.controlLeft);
         ImageView georgie = (ImageView) findViewById(R.id.gleftone);
         georgie.setImageResource(R.drawable.gleftanim);
         final AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
-        ctrlleft.setOnLongClickListener(new View.OnLongClickListener() {
+        ctrlleft.setOnTouchListener(new View.OnTouchListener(){
             @Override
-            public boolean onLongClick(View v) {
-              gMoveLeftAnim();
+            public boolean onTouch (View v, MotionEvent event){
+                System.out.println("In the onTouch event listener");
+                if (event.getAction() == MotionEvent.ACTION_DOWN){
+                    System.out.println("Pressed Down");
+                    gMoveLeftAnim();
+                    return true;
+                }else if (event.getAction() == MotionEvent.ACTION_UP){
+                    System.out.println("Pressed up");
+                    gleftanim.stop();
+                    return true;
+                }
                 return true;
             }
         });
+    }
 
-        gleftanim.stop();
+    @SuppressLint("ClickableViewAccessibility")
+    public void  controlLeft(View view) {
+        // NAINA's CODE PREVIOUSLY
+        ImageButton ctrlleft = (ImageButton) findViewById(R.id.controlLeft);
+        ImageView georgie = (ImageView) findViewById(R.id.gleftone);
+        georgie.setImageResource(R.drawable.gleftanim);
+        final AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
+
+//        ctrlleft.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                System.out.println("In Long click");
+//                return gMoveLeftAnim();
+//            }
+//        });
+//
+//        gleftanim.stop();
 
     }
 
@@ -247,13 +276,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gMoveLeftAnim () {
+        // TODO: Make animation stop walking after certain amount of time.
         ImageView georgie = (ImageView) findViewById(R.id.gleftone);
         georgie.setImageResource(R.drawable.gleftanim);
-        final AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
-        Animation gleftaminM = new TranslateAnimation(Animation.ABSOLUTE, 150, Animation.ABSOLUTE, Animation.ABSOLUTE);
-        gleftaminM.setDuration(3000);
-        gleftaminM.setFillAfter(true);
+        AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
+        Animation gleftanimM = new TranslateAnimation(Animation.ABSOLUTE, 150, Animation.ABSOLUTE, Animation.ABSOLUTE);
+        gleftanimM.setDuration(3000);
+        gleftanimM.setFillAfter(true);
         gleftanim.start();
+        // Must call animation on the ImageView that is being moved otherwise animation is never used.
+        georgie.startAnimation(gleftanimM);
     }
     public void gMoveRightAnim () {
         ImageView georgie = (ImageView) findViewById(R.id.grightone);
@@ -357,6 +389,9 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        //Have to implement custom EventListener for pressing up or down events instead of using XML.
+        ImageButton controlLeft = (ImageButton) findViewById(R.id.controlLeft);
+        controlLeftView(controlLeft);
 
 
 
