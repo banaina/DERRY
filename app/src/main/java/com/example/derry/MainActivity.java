@@ -3,6 +3,7 @@ package com.example.derry;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.animation.TimeInterpolator;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
@@ -17,6 +18,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -223,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     public void controlLeftView (View view) {
         ImageButton ctrlleft = (ImageButton) findViewById(R.id.controlLeft);
-        ImageView georgie = (ImageView) findViewById(R.id.gleftone);
+        final ImageView georgie = (ImageView) findViewById(R.id.gleftone);
         georgie.setImageResource(R.drawable.gleftanim);
         final AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
         ctrlleft.setOnTouchListener(new View.OnTouchListener(){
@@ -233,36 +236,27 @@ public class MainActivity extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN){
                     System.out.println("Pressed Down");
                     gMoveLeftAnim();
+                    georgie.invalidate();
                     return true;
                 }else if (event.getAction() == MotionEvent.ACTION_UP){
                     System.out.println("Pressed up");
                     gleftanim.stop();
                     return true;
                 }
+
+                float pos = georgie.getX();
+                georgie.setX(pos);
                 return true;
             }
         });
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    public void  controlLeft(View view) {
-        // NAINA's CODE PREVIOUSLY
-        ImageButton ctrlleft = (ImageButton) findViewById(R.id.controlLeft);
-        ImageView georgie = (ImageView) findViewById(R.id.gleftone);
-        georgie.setImageResource(R.drawable.gleftanim);
-        final AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
 
-//        ctrlleft.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View v) {
-//                System.out.println("In Long click");
-//                return gMoveLeftAnim();
-//            }
-//        });
-//
-//        gleftanim.stop();
 
-    }
+
+
+
+
 
     public void controlRight(final View view) {
         ImageButton ctrlright = (ImageButton) findViewById(R.id.controlRight);
@@ -280,12 +274,14 @@ public class MainActivity extends AppCompatActivity {
         ImageView georgie = (ImageView) findViewById(R.id.gleftone);
         georgie.setImageResource(R.drawable.gleftanim);
         AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
-        Animation gleftanimM = new TranslateAnimation(Animation.ABSOLUTE, 150, Animation.ABSOLUTE, Animation.ABSOLUTE);
-        gleftanimM.setDuration(3000);
+        Animation gleftanimM = new TranslateAnimation(Animation.ABSOLUTE, -150, Animation.ABSOLUTE, Animation.ABSOLUTE);
+        gleftanimM.setDuration(1000);
         gleftanimM.setFillAfter(true);
         gleftanim.start();
         // Must call animation on the ImageView that is being moved otherwise animation is never used.
         georgie.startAnimation(gleftanimM);
+
+
     }
     public void gMoveRightAnim () {
         ImageView georgie = (ImageView) findViewById(R.id.grightone);

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/grightone"
-        android:duration="400"/>
+        android:duration="200"/>
     <item android:drawable="@drawable/grighttwo"
-        android:duration="400"/>
+        android:duration="200"/>
     <item android:drawable="@drawable/grightthree"
-        android:duration="400"/>
+        android:duration="200"/>
     <item android:drawable="@drawable/grightfour"
-        android:duration="400"/>
+        android:duration="200"/>
     <item android:drawable="@drawable/grightfive"
-        android:duration="400"/>
+        android:duration="200"/>
 
-    </animation-list>
+</animation-list>
+
