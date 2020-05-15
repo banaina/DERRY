@@ -1,11 +1,14 @@
 package com.example.derry;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.opengl.Visibility;
 import android.os.Bundle;
@@ -22,10 +25,14 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -228,19 +235,21 @@ public class MainActivity extends AppCompatActivity {
         ImageButton ctrlleft = (ImageButton) findViewById(R.id.controlLeft);
         final ImageView georgie = (ImageView) findViewById(R.id.gleftone);
         georgie.setImageResource(R.drawable.gleftanim);
-        final AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
+        AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
         ctrlleft.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch (View v, MotionEvent event){
+                float x = event.getX();
+                float y = event.getY();
                 System.out.println("In the onTouch event listener");
                 if (event.getAction() == MotionEvent.ACTION_DOWN){
                     System.out.println("Pressed Down");
-                    gMoveLeftAnim();
-                    georgie.invalidate();
+                    gMoveLeftAnim(true, x, y);
+
                     return true;
                 }else if (event.getAction() == MotionEvent.ACTION_UP){
                     System.out.println("Pressed up");
-                    gleftanim.stop();
+                    gMoveLeftAnim(false, x, y);
                     return true;
                 }
 
@@ -250,12 +259,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
 
 
     public void controlRight(final View view) {
@@ -269,7 +272,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void gMoveLeftAnim () {
+//    public void adjustBias (View georgie, float bias){
+//        // Set the horizontal constraint bias to make TranslateAnimation permanent
+//        // Get existing constraint layout parameters in activity_main.xml for the georgie view
+//        ConstraintLayout.LayoutParams param = (ConstraintLayout.LayoutParams) georgie.getLayoutParams();
+//        // Declare a bias to set using a float value
+//        // adjust the param object with the horizontal bias
+//        param.horizontalBias = bias;
+//        // copy the param object to the real georgie ImageView
+//        georgie.setLayoutParams(param);
+//    }
+
+    public void gMoveLeftAnim (Boolean move, final float X, final float Y) {
         // TODO: Make animation stop walking after certain amount of time.
         ImageView georgie = (ImageView) findViewById(R.id.gleftone);
         georgie.setImageResource(R.drawable.gleftanim);
@@ -277,9 +291,14 @@ public class MainActivity extends AppCompatActivity {
         Animation gleftanimM = new TranslateAnimation(Animation.ABSOLUTE, -150, Animation.ABSOLUTE, Animation.ABSOLUTE);
         gleftanimM.setDuration(1000);
         gleftanimM.setFillAfter(true);
-        gleftanim.start();
-        // Must call animation on the ImageView that is being moved otherwise animation is never used.
-        georgie.startAnimation(gleftanimM);
+
+        if (move) {
+            gleftanim.start();
+            georgie.startAnimation(gleftanimM);
+            georgie.setX(X);
+        }else{
+            gleftanim.stop();
+        }
 
 
     }
