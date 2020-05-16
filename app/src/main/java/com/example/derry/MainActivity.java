@@ -28,6 +28,8 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -233,28 +235,30 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     public void controlLeftView (View view) {
         ImageButton ctrlleft = (ImageButton) findViewById(R.id.controlLeft);
-        final ImageView georgie = (ImageView) findViewById(R.id.gleftone);
-        georgie.setImageResource(R.drawable.gleftanim);
-        AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
+        //gleftanim was never used
+//        AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
         ctrlleft.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch (View v, MotionEvent event){
-                float x = event.getX();
-                float y = event.getY();
+//                float x = event.getX();
+//                float y = event.getY();
+                ImageView georgie = (ImageView) findViewById(R.id.gleftone);
+                georgie.setImageResource(R.drawable.gleftanim);
+
                 System.out.println("In the onTouch event listener");
                 if (event.getAction() == MotionEvent.ACTION_DOWN){
                     System.out.println("Pressed Down");
-                    gMoveLeftAnim(true, x, y);
+                    gMoveLeftAnim(true, georgie);
 
                     return true;
                 }else if (event.getAction() == MotionEvent.ACTION_UP){
                     System.out.println("Pressed up");
-                    gMoveLeftAnim(false, x, y);
+                    gMoveLeftAnim(false, georgie);
                     return true;
                 }
 
-                float pos = georgie.getX();
-                georgie.setX(pos);
+//                float pos = georgie.getX();
+//                georgie.setX(pos);
                 return true;
             }
         });
@@ -272,30 +276,29 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    public void adjustBias (View georgie, float bias){
-//        // Set the horizontal constraint bias to make TranslateAnimation permanent
-//        // Get existing constraint layout parameters in activity_main.xml for the georgie view
-//        ConstraintLayout.LayoutParams param = (ConstraintLayout.LayoutParams) georgie.getLayoutParams();
-//        // Declare a bias to set using a float value
-//        // adjust the param object with the horizontal bias
-//        param.horizontalBias = bias;
-//        // copy the param object to the real georgie ImageView
-//        georgie.setLayoutParams(param);
-//    }
-
-    public void gMoveLeftAnim (Boolean move, final float X, final float Y) {
+    public void gMoveLeftAnim (Boolean move, ImageView v) {
         // TODO: Make animation stop walking after certain amount of time.
-        ImageView georgie = (ImageView) findViewById(R.id.gleftone);
-        georgie.setImageResource(R.drawable.gleftanim);
-        AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
+//        ImageView georgie = (ImageView) findViewById(R.id.gleftone);
+//        georgie.setImageResource(R.drawable.gleftanim);
+//        AnimationDrawable gleftanim = (AnimationDrawable) georgie.getDrawable();
+        AnimationDrawable gleftanim = (AnimationDrawable) v.getDrawable();
         Animation gleftanimM = new TranslateAnimation(Animation.ABSOLUTE, -150, Animation.ABSOLUTE, Animation.ABSOLUTE);
         gleftanimM.setDuration(1000);
         gleftanimM.setFillAfter(true);
 
+
         if (move) {
             gleftanim.start();
-            georgie.startAnimation(gleftanimM);
-            georgie.setX(X);
+//            georgie.startAnimation(gleftanimM);
+            v.startAnimation(gleftanimM);
+            ConstraintLayout.LayoutParams params  = (ConstraintLayout.LayoutParams) v.getLayoutParams();
+//            params.horizontalBias -= .1f;
+//            int x = ((ConstraintLayout.LayoutParams) v.getLayoutParams()).leftMargin;
+//            params.rightMargin += 50;
+            params.horizontalBias -= 0.1f;
+            v.setLayoutParams(params);
+
+//            georgie.setX(X);
         }else{
             gleftanim.stop();
         }
