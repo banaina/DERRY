@@ -8,7 +8,9 @@
 
 # ToDo
 
-## -error handling  -further development in storyline  -implement more choice routes/in-game dialogue
+## -error handling 
+-further development in storyline  
+-implement more choice routes/in-game dialogue
 
 # TOOLS
 
